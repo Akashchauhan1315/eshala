@@ -55,11 +55,11 @@ $("#productform").submit(function(e) {
                
     e.preventDefault();
     console.log($(this).serialize());
-
+    var timezone=Intl.DateTimeFormat().resolvedOptions().timeZone
     $.ajax({
         url : $(this).attr('action'),
         "headers": {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        data : $(this).serialize(),
+        data : $(this).serialize()+ "&timezone=" + timezone,
         type : 'post',
         dataType:"json",
         success:function(response){

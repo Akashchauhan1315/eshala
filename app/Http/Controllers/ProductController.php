@@ -26,7 +26,7 @@ class ProductController extends Controller
             
             $input=$request->all();
 
-            $input['datetime']=Carbon::now()->format('Y-m-d H:i:s');
+            $input['datetime']=Carbon::now()->setTimezone($request->timezone)->format('Y-m-d H:i:s');
 
             return response(['status' =>"success",'statuscode' => 200,'data'=>$input,'message' => "Product Create"], 200);
         }
