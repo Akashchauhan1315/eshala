@@ -29,7 +29,7 @@ class LoginController extends Controller
 
         ]);
 
-        if ($request->input('username') == env('usernames') && $request->input('password') == env('password')) {
+        if ($request->input('username') == 'akash' && $request->input('password') == '12345678') {
 
             $request->session()->put('user', ['username' => $request->input('username'),'time' => time()]);
 
